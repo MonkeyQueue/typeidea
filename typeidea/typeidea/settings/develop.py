@@ -6,7 +6,7 @@ DATABASES={
 	'default':{
 		
 	'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mesdb',
+        'NAME': 'typeideadb',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': 'localhost',
