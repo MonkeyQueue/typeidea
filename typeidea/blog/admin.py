@@ -6,6 +6,7 @@ from django.utils.html import format_html
 from .adminforms import PostAdminForm
 from typeidea.custom_site import custom_site
 from typeidea.base_admin import BaseOwnerAdmin
+from django.contrib.admin.models import LogEntry
 
 #使在分类列表中也能够编辑文章的内容
 class PostInline(admin.TabularInline):
@@ -130,4 +131,6 @@ class TagAdmin(BaseOwnerAdmin):
         obj.owner=request.user
         return super(TagAdmin,self).save_model(request,obj,form,change)
 
-
+@admin.register(LogEntry,site=custom_site)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display=['object_repr','object_id','action_flag','user','change_message']
