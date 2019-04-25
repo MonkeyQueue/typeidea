@@ -7,16 +7,40 @@
   </title>
  </head>
 <body>
+
+<div>
+  <a href="/">&lt;&lt;返回首页</a>
+</div>
 <!-- <h1>list</h1>
 {{name}}
  -->
+ <div>顶部分类：
+{% for cate in navs %}
+  <a href="/category/{{cate.id}}/">{{cate.name}}</a>
+{% endfor %}
+</div>
+<hr/>
 
+
+
+
+{% if tag %}
+  <h2>标签页：{{tag.name}}</h2>
+{% endif %}
+
+{% if category %}
+  <h2>分类页：{{category.name}}</h2>
+{% endif %}
+
+
+<h3>博文</h3>
 <ul>
     {% for post in post_list %}
     <li>
         <a href="/post/{{post.id}}.html">{{post.title}}</a>
         <div>
-            <span>作者:{{ post.owner.username }}</span>
+            <span>作者:{{ post.owner.username }}</span>  
+            <!--使用这种查询关系，会产生N+1问题 -->
             <span>分类：{{ post.category.name }}</span>
 
         </div>
@@ -26,5 +50,17 @@
     {% endfor %}
 </ul>
 
+<hr/>
+<div>底部分类
+  {% for cate in categories %}
+    <a href="/category/{{cate.id}}/">{{cate.name}}</a>
+  {% endfor %}
+</div>
+<div>侧边栏展示：
+{% for sidebar in sidebars %}
+  <h4>{{sidebar.title}}</h4>
+  {{sidebar.content}}
+{% endfor %}
+</div>
 </body>
 </html>

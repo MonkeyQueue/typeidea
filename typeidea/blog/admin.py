@@ -42,8 +42,8 @@ class PostAdmin(BaseOwnerAdmin):#admin.ModelAdmin
 
     search_fields=['title','category__name']
 
-    actions_on_top = True
-    actions_on_bottom = True
+    actions_on_top = True  #默认值为True
+    actions_on_bottom = True  #默认值为False
 
     save_on_top = True
     exclude=['owner']
