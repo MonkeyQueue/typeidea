@@ -1,21 +1,12 @@
-<!doctype html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>
-    {%block title%}会员登陆{%endblock%}
-  </title>
+{% extends "./base.html" %}
+{% block title %}
+    {{post.title}}
+{% endblock %}
 
- </head>
-<body>
 
-<div>
-  <a href="/">&lt;&lt;返回首页</a>
-</div>
-<!-- <h1>detail</h1>
-{{name}} -->
 
-{% if post%}
+{% block main %}
+{% if post %}
 <h1>{{ post.title }}</h1>
 <div>
     <span>分类：{{ post.category.name }}</span>
@@ -26,5 +17,4 @@
     {{post.content}}
 </p>
 {% endif %}
-</body>
-</html>
+{% endblock %}

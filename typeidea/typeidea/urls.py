@@ -21,13 +21,13 @@ from config.views import links
 from typeidea.custom_site import custom_site
 
 urlpatterns = [
-    url(r'^$',post_list),
-    url(r'^category/(?P<category_id>\d+)/$',post_list),
-    url(r'^tag/(?P<tag_id>\d+)/$',post_list),
-    url(r'^post/(?P<post_id>\d+).html$',post_detail),
-    url(r'^links/$',links),
-    url(r'^super_admin/',admin.site.urls),
-    url(r'^admin/',custom_site.urls), #定制site，关联custom_site.py文件
+    url(r'^$',post_list,name='index'),
+    url(r'^category/(?P<category_id>\d+)/$',post_list,name='category_list'),
+    url(r'^tag/(?P<tag_id>\d+)/$',post_list,name='tag_list'),
+    url(r'^post/(?P<post_id>\d+).html$',post_detail,name='post_detail'),
+    url(r'^links/$',links,name='links'),
+    url(r'^super_admin/',admin.site.urls,name='super_admin'),
+    url(r'^admin/',custom_site.urls,name='admin'), #定制site，关联custom_site.py文件
     # url(r'^blog/',include('blog.urls'),name='blog'),
 ]
 
